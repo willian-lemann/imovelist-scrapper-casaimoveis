@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "node --no-warnings --env-file=.env main.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "puppeteer": "^24.8.0"
+  }
+}
