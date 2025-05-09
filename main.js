@@ -1,4 +1,5 @@
 import { insertListing } from "./data/insert-listing.js";
+import { clientDB } from "./config/database.js";
 
 import * as scrappingCasaImoveis from "./scrappers/casa-imoveis.js";
 
