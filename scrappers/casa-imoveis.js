@@ -53,12 +53,21 @@ async function getImovelDetails(page, url) {
   };
 }
 
+const defaultConfig = {
+  headless: true,
+};
+
+const config =
+  process.env.NODE_ENV === "development"
+    ? defaultConfig
+    : {
+        ...defaultConfig,
+        executablePath: "/usr/bin/chromium-browser",
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      };
+
 export async function execute(url) {
-  const browser = await puppeteer.launch({
-    executablePath: "/usr/bin/chromium-browser",
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  const browser = await puppeteer.launch(config);
 
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: "networkidle2" });

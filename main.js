@@ -7,9 +7,20 @@ async function main() {
     "https://casaimoveisimb.com.br/imoveis"
   );
 
+  const { error: deleteError } = await clientDB
+    .from("listings")
+    .delete()
+    .eq("agency", "casa_imoveis");
+
+  if (deleteError) {
+    return console.error("Error delete all listings:", deleteError);
+  }
+
   for (const listing of listings) {
     await insertListing(listing);
   }
+
+  console.log("Scrapping completed");
 }
 
 main();
