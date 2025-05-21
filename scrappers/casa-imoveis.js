@@ -67,7 +67,10 @@ const config =
       };
 
 export async function execute(url) {
-  const browser = await puppeteer.launch({ protocolTimeout: 60000, ...config });
+  const browser = await puppeteer.launch({
+    protocolTimeout: 120000,
+    ...config,
+  });
 
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: "networkidle2" });
