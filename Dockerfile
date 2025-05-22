@@ -23,6 +23,8 @@ RUN apk add --no-cache \
    ca-certificates \
    ttf-freefont
 
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 # EXPOSE 3000 # Descomente se seu app for web
