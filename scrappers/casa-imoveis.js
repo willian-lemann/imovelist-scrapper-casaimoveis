@@ -69,6 +69,7 @@ const config =
 export async function execute(url) {
   const browser = await puppeteer.launch({
     protocolTimeout: 120000,
+    timeout: 120000,
     ...config,
   });
 
