@@ -23,10 +23,19 @@ RUN apk add --no-cache \
    ca-certificates \
    ttf-freefont
 
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
+# Set environment variables
+ARG SUPABASE_URL
+ARG SUPABASE_ANON_KEY
+ARG DATABASE_URL
+
+ENV SUPABASE_URL=${SUPABASE_URL}
+ENV SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+ENV DATABASE_URL=${DATABASE_URL}
+
 # EXPOSE 3000 # Descomente se seu app for web
+
 
 CMD ["pnpm", "start"]

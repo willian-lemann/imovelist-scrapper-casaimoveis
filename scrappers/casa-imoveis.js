@@ -98,7 +98,7 @@ export async function execute(url) {
         let cleaned = priceStr.replace(/[^\d,.-]/g, "");
         cleaned = cleaned.replace(/\./g, "").replace(",", ".");
         const value = parseFloat(cleaned);
-        return isNaN(value) ? null : value;
+        return isNaN(value) ? null : value * 100; // Convert to cents
       }
 
       function extractNumber(str) {
