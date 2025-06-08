@@ -71,9 +71,10 @@ export async function execute(url) {
     protocolTimeout: 60000,
     ...config,
   });
+  browser._connection._transport._ws.setTimeout(60000);
 
   const page = await browser.newPage();
-  await page.goto(url, { waitUntil: "networkidle2" });
+  await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
 
   while ((await page.$("button.BtnShowMoreImovel")) !== null) {
     await page.click("button.BtnShowMoreImovel");
