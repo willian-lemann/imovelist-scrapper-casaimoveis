@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "start": "NODE_ENV=production node --no-warnings main.js",
-    "dev": "NODE_ENV=development node --no-warnings --env-file=.env main.js"
+    "dev": "NODE_ENV=development node --env-file=.env --no-warnings main.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
